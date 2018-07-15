@@ -1,22 +1,23 @@
 Apache Server Configuretion
 ===========================
 
-You first need to install the apache over the server.
-System: `UBUNTU 16.04.3`
-Install apache: ```sudo apt-get install apache2 ```
+You first need to install the apache over the server.  
+System: `UBUNTU 16.04.3`  
+Install Apache: `sudo apt-get install apache2 `  
 
-# Create the server certificate
+Create the server certificate
+-----------------------------
  - Create the structure directory and protect from other users:
     ```sh
-    $ mkdir ssl
-    $ chmod 0700 ssl
-    $ cd ssl
-    $ mkdir certs private
+    mkdir ssl
+    chmod 0700 ssl
+    cd ssl
+    mkdir certs private
     ```
  - Create a database to keep track of each certificate signed:
     ```sh
-    $ echo '100001' > serial
-    $ touch certindex.txt
+    echo '100001' > serial
+    $touch certindex.txt
     ```
  - Make a custom config file for openssl to use (Attached in the end).
  - Create root certificate (CA):
@@ -36,7 +37,8 @@ Install apache: ```sudo apt-get install apache2 ```
  	```
  	This will produce `server-cert.pem` that is the public certificate.
 
-# Create the client certificate and the PKCS12 container
+Create the client certificate and the PKCS12 container
+------------------------------------------------------
  - Create a key and signing request for each client:
  	```sh
  	openssl req -new -nodes -out client-req.pem -keyout private/client-key.pem -days 365 -config ./openssl.cnf
@@ -49,19 +51,19 @@ Install apache: ```sudo apt-get install apache2 ```
  	`name-cert.pem` is the client certificate.
  - Create the PKCS12 file:
  	```sh
- 	$ openssl pkcs12 -export -in name-cert.pem -inkey private/client-key.pem -certfile cacert.pem -name "lijiawei" -out name-cert.p12
+ 	openssl pkcs12 -export -in name-cert.pem -inkey private/client-key.pem -certfile cacert.pem -name "lijiawei" -out name-cert.p12
  	```
  	The produced file `name-cert.p12` is the file that the server will require to comunicate, and you have to install on the client.
 
 # Configure APACHE
 (you need to modify the path according to your server)
  - First Step: Only open server certificate.
-```sh
-$ cd /etc/apache2/site-available
-$ sudo vim default-ssl.conf
+```
+cd /etc/apache2/site-available
+sudo vim default-ssl.conf
 ```
 Modified config file looks like the following:
-```sh
+```
 <IfModule mod_ssl.c>
     <VirtualHost _default_:443>
         ServerAdmin webmaster@localhost
@@ -106,7 +108,7 @@ Modified config file looks like the following:
 ```
 
 Then, you need to reload the apache service.
-```sh
+```
 $ sudo a2ensite default-ssl.conf
 $ sudo service apache2 reload
 $ sudo service apaches restart
@@ -116,7 +118,7 @@ You must use HTTPS to visit the website (localhost).
 
  - Second step: Open client certificate.
 Remove the comments of:
-```sh
+```
 #SSLCACertificateFile /home/jiawei/Desktop/ssl/cacert.pem
 #SSLCertificateChainFile /etc/apache2/ssl.crt/server-ca.crt
 #SSLCACertificatePath /etc/ssl/certs/
@@ -127,7 +129,7 @@ The config files are located in `/etc/apache2/site-available` and `/etc/apache2/
 
 
 # CA config file
-```sh
+```
 
 dir = .
 
