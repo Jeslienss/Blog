@@ -1,2 +1,2 @@
 # Blog (Tips for development)
-[a relative link](VMware_Bridge_Setup.md)
+[Setup VMware Bridge](VMware_Bridge_Setup.md). 
