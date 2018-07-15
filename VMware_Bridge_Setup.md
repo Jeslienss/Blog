@@ -14,8 +14,8 @@ In network adapter, set network connection to be **Bridge**.
 	Ubuntu: `nmcli show dev eth0` (eth0 = device name).  
 
 2. Open the VM and configure the VM's network.  
-	Windows: `Control Panel` -> `Network and Internet` -> `Network and Sharing Center`
-		At connections, for example, it has a `Ethernet0`. Click -> `Properties` -> `TCP/IPv4` -> Enter all the information
-	Ubuntu: `Edit connections` -> `Wired connection 1` -> `IPV4 settings` -> Enter all the information(set a different IP Address without confliction).
+	Windows: `Control Panel` -> `Network and Internet` -> `Network and Sharing Center`  
+		At connections, for example, it has a `Ethernet0`. Click -> `Properties` -> `TCP/IPv4` -> Enter all the information  
+	Ubuntu: `Edit connections` -> `Wired connection 1` -> `IPV4 settings` -> Enter all the information(set a different IP Address without confliction)  
 
 	To discover the existing IP Address, using `sudo arp-scan --interface=ens33 35.12.214.0/24`.
