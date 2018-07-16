@@ -23,5 +23,5 @@ sudo iptables -t nat -A PREROUTING -p tcp --dport 5222 -j REDIRECT --to-ports 80
 
 Reference:
 ==========
-https://www.roe.ch/SSLsplit
-https://blog.heckel.xyz/2013/08/04/use-sslsplit-to-transparently-sniff-tls-ssl-connections/
+https://www.roe.ch/SSLsplit  
+https://blog.heckel.xyz/2013/08/04/use-sslsplit-to-transparently-sniff-tls-ssl-connections/  
