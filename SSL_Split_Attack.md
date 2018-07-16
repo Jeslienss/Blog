@@ -21,5 +21,7 @@ sudo iptables -t nat -A PREROUTING -p tcp --dport 5222 -j REDIRECT --to-ports 80
 2. Start the ssl split (You should pre-create directory in /tmp folder)  
 `sudo ./sslsplit -D -l connections.log -j /tmp/sslsplit/ -S /tmp/sslsplit/logdir/ -k cakey.pem -c cacert.pem ssl 0.0.0.0 8443 tcp 0.0.0.0 8080`  
 
-# Ref: https://www.roe.ch/SSLsplit
-# Ref: https://blog.heckel.xyz/2013/08/04/use-sslsplit-to-transparently-sniff-tls-ssl-connections/
+Reference:
+==========
+https://www.roe.ch/SSLsplit
+https://blog.heckel.xyz/2013/08/04/use-sslsplit-to-transparently-sniff-tls-ssl-connections/
