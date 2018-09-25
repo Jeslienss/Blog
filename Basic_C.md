@@ -13,4 +13,10 @@ big-endian: 0A0B0C0D
 |0D|
 
 
-little
+little-endian: 0A0B0C0D
+
+|0D|
+|--|
+|0C|
+|0B|
+|0A|
