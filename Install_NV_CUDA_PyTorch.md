@@ -4,6 +4,7 @@ Today, I install the CUDA 10 with the NVIDIA Driver Version 410 (Which should co
 	`sudo apt-get update`  
 	`sudo apt-get install nvidia-410 nvidia-modprobe`  
    To test it, we input `nvidia-smi` into the terminal. It should display as following:  
+`
 Tue Feb  5 17:47:29 2019   
 +-----------------------------------------------------------------------------+  
 | NVIDIA-SMI 410.78       Driver Version: 410.78       CUDA Version: 10.0     |  
@@ -23,4 +24,4 @@ Tue Feb  5 17:47:29 2019
 |    0      2089      G   compiz                                       109MiB |  
 |    0      2564      G   ...uest-channel-token=14543146793354941521   135MiB |  
 +-----------------------------------------------------------------------------+  
-
+`
