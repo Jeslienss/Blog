@@ -104,6 +104,28 @@ Device 0: "GeForce GTX 1080"
 deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 9.2, CUDA Runtime Version = 9.2, NumDevs = 1  
 Result = PASS  
 ```  
+To uninstall the CUDA Toolkit, run the uninstall script in /usr/local/cuda-9.2/bin  
 
-
-To uninstall the CUDA Toolkit, run the uninstall script in /usr/local/cuda-9.2/bin
+Install [cuDNN 7.4.2 for CUDA 9.2](https://developer.nvidia.com/rdp/cudnn-download)
+-----------------------------------------------------------------------------------
+Download 3 files: runtime library, developer library, and the code samples library.
+Installation orders:  
+```
+sudo dpkg -i libcudnn7_7.4.2.24-1+cuda9.2_amd64.deb  
+sudo dpkg -i libcudnn7-dev_7.4.2.24-1+cuda9.2_amd64.deb  
+sudo dpkg -i libcudnn7-doc_7.4.2.24-1+cuda9.2_amd64.deb  
+```
+Test installation,
+```
+cp -r /usr/src/cudnn_samples_v7/ ~  
+cd ~/cudnn_samples_v7/mnistCUDNN  
+make clean  
+make  
+./mnistCUDNN  
+```
+If it show out `Test passed!`, the installation is successful.
+In the end, `vim .bashrc`  
+```
+# put the following line in the end or your .bashrc file  
+export LD_LIBRARY_PATH="LD_LIBRARY_PATH=${LD_LIBRARY_PATH:+${LD_LIBRARY_PATH}:}/usr/local/cuda/extras/CUPTI/lib64"  
+```
