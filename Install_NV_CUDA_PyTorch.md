@@ -1,4 +1,4 @@
-Today, I install the CUDA 9.2 with the NVIDIA Driver Version 396
+Today, I install the CUDA 9.2 with the NVIDIA Driver Version 396  
 Install NVIDIA DRIVER 396  
 ----------------------------
 	```
