@@ -1,5 +1,6 @@
 Today, I install the CUDA 9.2 with the NVIDIA Driver Version 396
  - Install NVIDIA DRIVER 396  
+----------------------------
 	```
 	sudo add-apt-repository ppa:graphics-drivers/ppa  
 	sudo apt-get update  
@@ -101,4 +102,4 @@ Result = PASS
  ```  
 
 
-	To uninstall the CUDA Toolkit, run the uninstall script in /usr/local/cuda-9.2/bin
+To uninstall the CUDA Toolkit, run the uninstall script in /usr/local/cuda-9.2/bin
