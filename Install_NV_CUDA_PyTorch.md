@@ -1,5 +1,5 @@
-Install the CUDA 9.2 with the NVIDIA Driver Version 396  
-=======================================================
+Install the CUDA 9.2 with the NVIDIA Driver Version 396 on UBUNTU 16.04.5
+=========================================================================
 
 Install NVIDIA DRIVER 396  
 ----------------------------
@@ -129,3 +129,46 @@ In the end, `vim .bashrc`
 # put the following line in the end or your .bashrc file  
 export LD_LIBRARY_PATH="LD_LIBRARY_PATH=${LD_LIBRARY_PATH:+${LD_LIBRARY_PATH}:}/usr/local/cuda/extras/CUPTI/lib64"  
 ```
+
+Install PyTorch
+---------------
+Here, we use virtual environment,  
+```
+mkdir pytorchEnv  
+cd pytorchEnv  
+virtualenv --no-site-packages pytorchEnv  
+source pytorchEnv/bin/activate  
+```
+Then, do what you want to do in the virtual environment.  
+In [PyTorch](https://pytorch.org/), we select `Stable`, `Linux`, `Pip`, `Python 3.5`, `CUDA 9.0`.  
+Install with `pip3 install torch torchvision`.  
+
+To test if we succeed to install pytorch,  
+```
+>>> import torch  
+>>> torch.cuda.current_device()  
+0  
+>>> torch.cuda.device(0)  
+<torch.cuda.device object at 0x7f51becff0f0>  
+>>> torch.cuda.device_count()  
+1  
+>>> torch.cuda.get_device_name(0)  
+'GeForce GTX 1080'  
+```
+
+
+
+Write at the end
+----------------
+Sometimes, you may need to completely uninstall NVIDIA
+To see what package you installed,  
+```
+dpkg -l | grep nvidia
+```
+Then  
+```
+sudo apt-get remove --purge '^nvidia-.*'
+```
+(purge everything begins with nvidia-)  
+
+Refer to: `https://medium.com/@zhanwenchen/install-cuda-9-2-and-cudnn-7-1-for-tensorflow-pytorch-gpu-on-ubuntu-16-04-1822ab4b2421`
