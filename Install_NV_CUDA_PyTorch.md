@@ -1,13 +1,13 @@
 Today, I install the CUDA 9.2 with the NVIDIA Driver Version 396  
 Install NVIDIA DRIVER 396  
 ----------------------------
-	```
-	sudo add-apt-repository ppa:graphics-drivers/ppa  
-	sudo apt-get update  
-	sudo apt-get install nvidia-396 nvidia-modprobe  
-	```  
-	Then, REBOOT!  
-   To test it, we input `nvidia-smi` into the terminal. It should display as following:  
+```
+sudo add-apt-repository ppa:graphics-drivers/ppa  
+sudo apt-get update  
+sudo apt-get install nvidia-396 nvidia-modprobe  
+```  
+Then, REBOOT!  
+To test it, we input `nvidia-smi` into the terminal. It should display as following:  
 ```
 Tue Feb  5 17:47:29 2019   
 Tue Feb  5 23:00:31 2019       
@@ -99,7 +99,7 @@ Device 0: "GeForce GTX 1080"
 
 deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 9.2, CUDA Runtime Version = 9.2, NumDevs = 1  
 Result = PASS  
- ```  
+```  
 
 
 To uninstall the CUDA Toolkit, run the uninstall script in /usr/local/cuda-9.2/bin
