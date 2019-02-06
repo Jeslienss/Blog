@@ -1,4 +1,6 @@
-Today, I install the CUDA 9.2 with the NVIDIA Driver Version 396  
+Install the CUDA 9.2 with the NVIDIA Driver Version 396  
+=======================================================
+
 Install NVIDIA DRIVER 396  
 ----------------------------
 ```
@@ -31,7 +33,9 @@ Tue Feb  5 23:00:31 2019
 +-----------------------------------------------------------------------------+  
 ```  
 NVIDIA Official Compatibility `https://docs.nvidia.com/deploy/cuda-compatibility/index.html`  
- - Install [NVIDIA CUDA 9.2](https://developer.nvidia.com/cuda-92-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1604&target_type=runfilelocal)  
+
+Install [NVIDIA CUDA 9.2](https://developer.nvidia.com/cuda-92-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1604&target_type=runfilelocal)  
+----------------------------------------------------------------------------------------
  Here, we choose the runfile. In runfile, we can choose which components we want to install. The runfile contains three parts:
  	- an NVIDIA driver installer, but usually of stale version;  
  	- the actual CUDA installer;  
